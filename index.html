@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.signin {
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				z-index: 9999;
+				overflow: hidden
+			}
+			
+			.coin {
+				width: 4.12rem;
+				height: 4.12rem;
+				font-size: 30px;
+				margin-left: calc((100% - 4.12rem) / 2);
+				margin-top: calc((9.22rem / 2) - 1.5rem);
+				position: relative
+			}
+			
+			.coin .bg {
+				float: left;
+				width: 4.12rem;
+				height: 4.12rem
+			}
+			
+			.coin .texts {
+				position: absolute;
+				top: 1.7rem;
+				left: 1.11rem;
+				width: 1.9rem;
+				height: .72rem
+			}
+			
+			.coin1 {
+				width: .68rem;
+				height: .5rem;
+				position: absolute;
+				top: .3rem;
+				right: 0;
+				animation-delay: 0.3s
+			}
+			
+			.coin2 {
+				width: .33rem;
+				height: .43rem;
+				position: absolute;
+				top: .5rem;
+				left: 3.7rem;
+				animation-delay: 0.25s
+			}
+			
+			.coin3 {
+				width: .67rem;
+				height: .8rem;
+				position: absolute;
+				top: 3.3rem;
+				left: .9rem;
+				animation-delay: 0.2s
+			}
+			
+			.coin4 {
+				width: .75rem;
+				height: .55rem;
+				position: absolute;
+				top: 3.7rem;
+				right: 1.3rem;
+				animation-delay: 0.15s
+			}
+			
+			.coin5 {
+				width: .83rem;
+				height: .59rem;
+				position: absolute;
+				top: 6.8rem;
+				right: 1.1rem;
+				animation-delay: 0.1s
+			}
+			
+			.coin6 {
+				width: .8rem;
+				height: .74rem;
+				position: absolute;
+				top: 8rem;
+				right: .3rem;
+				animation-delay: 0.05s
+			}
+			
+			.coin7 {
+				width: 2.12rem;
+				height: 1.9rem;
+				position: absolute;
+				top: 8.7rem;
+				left: 1.2rem;
+				animation-delay: 0.05s
+			}
+			
+			.animated {
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-webkit-animation-iteration-count: 1;
+				animation-iteration-count: 1;
+			}
+			
+			@keyframes bounceInDown {
+				from,
+				60%,
+				75%,
+				90%,
+				to {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+					animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+				}
+				0% {
+					-webkit-transform: translate3d(0, -3000px, 0);
+					transform: translate3d(0, -3000px, 0);
+				}
+				60% {
+					-webkit-transform: translate3d(0, 25px, 0);
+					transform: translate3d(0, 25px, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(0, -10px, 0);
+					transform: translate3d(0, -10px, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, 5px, 0);
+					transform: translate3d(0, 5px, 0);
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+				}
+			}
+			
+			@keyframes rotateInDownRight {
+				from {
+					opacity: 0;
+					transform: rotate(60deg);
+				}
+				60% {
+					opacity: 1;
+					transform: rotate(60deg);
+				}
+				to {
+					transform: rotate(0);
+				}
+			}
+			
+			.rotateInDownRight {
+				-webkit-animation-name: rotateInDownRight;
+				animation-name: rotateInDownRight;
+				-webkit-animation-duration: 0.8s;
+				animation-duration: 0.8s;
+			}
+			
+			.bounceInDown {
+				-webkit-animation-name: bounceInDown;
+				animation-name: bounceInDown;
+				-webkit-animation-duration: 0.8s;
+				animation-duration: 0.8s;
+			}
+			
+			@keyframes rotateInDownRighttext {
+				from {
+					opacity: 0;
+					transform: rotate(60deg) scale(1.2);
+				}
+				75% {
+					opacity: 1;
+					transform: rotate(60deg) scale(1);
+				}
+				to {
+					transform: rotate(0) scale(1);
+				}
+			}
+			
+			.rotateInDownRighttext {
+				-webkit-animation-name: rotateInDownRighttext;
+				animation-name: rotateInDownRighttext;
+				-webkit-animation-duration: 0.8s;
+				animation-duration: 0.8s;
+			}
+			
+			@keyframes bigVanish {
+				from {
+					opacity: 1;
+					transform: scale(1);
+				}
+				to {
+					opacity: 0;
+					transform: scale(3);
+				}
+			}
+			
+			.bigVanish {
+				-webkit-animation-name: bigVanish;
+				animation-name: bigVanish;
+				-webkit-animation-duration: 0.4s;
+				animation-duration: 0.4s;
+				animation-delay: 1s;
+			}
+			
+			@keyframes coinDown {
+				from {
+					-webkit-transform: translate3d(0, -3000px, 0);
+					transform: translate3d(0, -3000px, 0);
+				}
+				to {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+				}
+			}
+			
+			@keyframes goDown {
+				from {
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+				}
+				to {
+					-webkit-transform: translate3d(0, 1000px, 0);
+					transform: translate3d(0, 1000px, 0);
+				}
+			}
+			
+			.signin>img {
+				-webkit-animation-name: coinDown;
+				animation-name: coinDown;
+				-webkit-animation-duration: 0.8s;
+				animation-duration: 0.8s;
+				-webkit-animation-timing-function: ease-out;
+				animation-timing-function: ease-out;
+			}
+			
+			.signin>img.goDown {
+				-webkit-animation-name: goDown;
+				animation-name: goDown;
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				animation-delay: 1s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id='btn'>签到</div>
+		<div class="signin" id="signin">
+			<div class="coin animated ">
+				<img id="bg" class="bg animated " src="./img/coin.png">
+				<img class="texts animated " src="./img/hasdone@2x.png">
+			</div>
+		</div>
+		<script>
+			 (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if(clientWidth>=640){
+                        docEl.style.fontSize = '100px';
+                    }else{
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+		</script>
+		<script>
+			function hasClass(elem, cls) {
+				cls = cls || '';
+				if(cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false
+				return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
+			}
+
+			function addClass(elem, cls) {
+				if(!hasClass(elem, cls)) {
+					elem.className = elem.className == '' ? cls : elem.className + ' ' + cls;
+				}
+			}
+
+			var container = document.getElementById('signin');
+			var btn = document.getElementById('btn');
+			var coinBg = document.getElementsByClassName("bg")[0];
+			var texts = document.getElementsByClassName("texts")[0];
+			var coinImgs = document.getElementsByClassName("coins");
+			var coin = document.getElementsByClassName("coin")[0];
+
+			/*定义小金币基本信息 */
+			var coinPosition = [
+				[0.3, 0],
+				[0.5, 3.5],
+				[3.3, 6],
+				[3.7, 1.3],
+				[6.8, 1.1],
+				[8, 0.3],
+				[8.7, 4.2]
+			];
+			var coinSize = [
+				[0.68, 0.5],
+				[0.33, 0.43],
+				[0.67, 0.8],
+				[0.75, 0.55],
+				[0.83, 0.59],
+				[0.8, 0.74],
+				[2.12, 1.9]
+			];
+
+			btn.addEventListener('click', function() {
+				addClass(coin, "bounceInDown")
+				addClass(coinBg, "rotateInDownRight")
+				addClass(texts, "rotateInDownRighttext")
+				container.style.display = "block"
+				init()
+
+			}, false);
+
+			function init() {
+				try {
+					for(var i = 0; i < 7; i++) {
+						container.appendChild(createALeaf(i));
+					}
+					second();
+				} catch(e) {
+					console.log("error")
+				}
+
+			}
+
+			function createALeaf(i) {
+				var image = document.createElement('img');
+				image.src = './img/coin' + (i + 1) + '.png';
+				image.className = 'coins animated';
+				image.style.width = coinSize[i][0] + "rem";
+				image.style.height = coinSize[i][1] + "rem";
+				image.style.top = coinPosition[i][0] + "rem";
+				image.style.right = coinPosition[i][1] + "rem";
+				image.style.webkitAnimationName = "coinDown";
+				image.style.animationName = "coinDown";
+				// 随机delay时间
+				var leafDelay = 0.05 * (7 - i);
+				image.style.webkitAnimationDelay = leafDelay + "s";
+				image.style.animationDelay = leafDelay + "s";
+				return image;
+			}
+
+			//第二部分金币掉落和已签到放大
+			function second() {
+				//最后一枚金币出现在屏幕的动画结束时触发
+				coinImgs[0].addEventListener("webkitAnimationEnd", function(e) {
+					//console.log("动画执行完毕");
+					if(hasClass(coinImgs[0], "goDown")) {
+						console.log("下一步");
+					}
+					addClass(texts, "bigVanish")
+					addClass(coinBg, "bigVanish")
+					Array.from(coinImgs).forEach((item, index) => {
+						coinImgs[index].style.animationName = '';
+						coinImgs[index].style.animationDelay = '';
+						addClass(coinImgs[index], "goDown")
+					});
+				}, false);
+			}
+		</script>
+	</body>
+
+</html>
