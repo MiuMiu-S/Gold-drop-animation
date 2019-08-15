@@ -2,10 +2,7 @@
 #### 写一个H5签到金币掉落动画
 
 
-
-![效果gif](https://upload-images.jianshu.io/upload_images/3888312-c1346bd3942f5963.gif?imageMogr2/auto-orient/strip)
-
-
+![image](https://github.com/MiuMiu-S/My-Work-Record/blob/master/%E7%AD%BE%E5%88%B0%E5%8A%A8%E7%94%BB.gif)
 
 最近项目上写了一个签到页面,其中有一个功能设计的是点击签到，有一个金币坠落的效果，现在总结记录一下：
 
